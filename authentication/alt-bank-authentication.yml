@@ -1,0 +1,29 @@
+generated: '2026-07-17'
+method: searched
+source: https://developers.altbank.ai/docs/guard-api
+docs: https://developers.altbank.ai/docs/guard-api
+summary:
+  types: [apiKey]
+  api_key_in: [header]
+  oauth2_flows: []
+  notes: >-
+    alt.bank authenticates partners with a static per-partner API token, not
+    OAuth. There is no documented OAuth2/OIDC scope surface, so no scopes/
+    artifact is emitted.
+schemes:
+- name: X-Partner-Auth
+  type: apiKey
+  in: header
+  parameter_name: X-Partner-Auth
+  description: >-
+    A 64-character alphanumeric token that uniquely identifies the partner and
+    is sent on the X-Partner-Auth request header for every GUARD API call.
+  format: 64-character alphanumeric string
+  sources: [https://developers.altbank.ai/docs/guard-api]
+network_controls:
+- type: ip-allowlist
+  description: >-
+    Partners must register the list of source IP addresses from which API
+    requests originate; alt.bank locks API communication down to those
+    predefined addresses in addition to token auth.
+  sources: [https://developers.altbank.ai/docs/guard-api]

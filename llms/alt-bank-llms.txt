@@ -1,0 +1,41 @@
+# Alt Bank (alt.bank)
+
+> alt.bank is a Brazilian fintech providing a turnkey credit-card and consumer-credit platform. Its flagship GUARD engine is a machine-learning underwriting / credit-risk API that returns a Guard Score, risk band and credit-limit decision in real time via an asynchronous partner API, alongside white-label credit cards, KYC, anti-fraud and Pix/boleto payments. Backed by Anthemis, Union Square Ventures, Repeat Ventures and SquareOne Capital.
+
+## APIs
+
+- [GUARD API](https://developers.altbank.ai/docs/guard): Real-time consumer credit underwriting. POST /api/partner/credit/cards/underwritings on https://guard.altbank.ai; asynchronous, result delivered to a partner callback URL; returns finished datetime, score, risk band, credit limit.
+- [CC Integration API](https://developers.altbank.ai/docs/cc-integration): Credit-card module integration (private, partner B2B).
+- [SDK KYC API](https://developers.altbank.ai/docs/sdk-kyc): Identity verification / KYC SDK and API.
+
+## Authentication
+
+- API key on the `X-Partner-Auth` header (64-character per-partner token) plus IP allow-listing. See [Authentication](https://developers.altbank.ai/docs/guard-api).
+
+## Environments
+
+- Production: https://guard.altbank.ai
+- Sandbox (staging, mirrors production): https://guard.stg.altbank.ai
+
+## Docs
+
+- [Developer Portal](https://developers.altbank.ai)
+- [Getting Started](https://developers.altbank.ai/docs/getting-started)
+- [Trace Context](https://developers.altbank.ai/docs/trace-context)
+- [GUARD credit product](https://altbank.ai/en/guard-credit/)
+
+## Company
+
+- [Website](https://altbank.ai/en/)
+- [About](https://altbank.ai/en/about-us/)
+- [Contact / Support](https://altbank.ai/en/contact-us/)
+- [LinkedIn](https://www.linkedin.com/company/alt-bank)
+
+## Repo artifacts
+
+- authentication/alt-bank-authentication.yml
+- conventions/alt-bank-conventions.yml
+- sandbox/alt-bank-sandbox.yml
+- asyncapi/alt-bank-guard-webhooks.yml
+- mcp/alt-bank-mcp.yml
+- well-known/alt-bank-well-known.yml

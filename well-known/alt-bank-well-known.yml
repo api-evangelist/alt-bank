@@ -1,0 +1,20 @@
+generated: '2026-07-17'
+method: probed
+source: live probe of alt.bank hosts
+hosts:
+- host: https://altbank.ai
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://developers.altbank.ai
+  documents:
+  - {path: /.well-known/security.txt, status: 403}
+- host: https://guard.altbank.ai
+  documents:
+  - {path: /, status: 404}
+note: >-
+  No /.well-known discovery documents were served (all 404/403). Absence is
+  recorded as valid data; no raw well-known files were captured.

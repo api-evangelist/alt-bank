@@ -1,0 +1,46 @@
+generated: '2026-07-17'
+method: searched
+source: https://developers.altbank.ai/docs/guard-api
+docs: https://developers.altbank.ai/docs/
+summary: >-
+  Cross-cutting request/response semantics for the alt.bank partner APIs
+  (GUARD underwriting, CC Integration, SDK KYC), captured from the public
+  developer portal.
+authentication:
+  style: api-key-header
+  header: X-Partner-Auth
+  network: ip-allowlist
+  ref: authentication/alt-bank-authentication.yml
+media_type: application/json
+async_pattern:
+  supported: true
+  description: >-
+    The GUARD underwriting call is asynchronous. The partner submits a request
+    and alt.bank posts the completed result to a partner-registered callback
+    URL once the underwriting analysis finishes.
+  callback_registration: >-
+    Partner must provide alt.bank a callback URL for configuration before using
+    the API.
+  ref: asyncapi/alt-bank-guard-webhooks.yml
+tracing:
+  supported: true
+  standard: W3C Trace Context
+  description: >-
+    The developer portal documents a Trace Context page for propagating trace
+    identifiers across partner and alt.bank services (W3C traceparent-style
+    distributed tracing).
+  docs: https://developers.altbank.ai/docs/trace-context
+environments:
+  separation: host-based
+  production: https://guard.altbank.ai
+  sandbox: https://guard.stg.altbank.ai
+  note: The staging sandbox mirrors the mechanics of production.
+  ref: sandbox/alt-bank-sandbox.yml
+idempotency:
+  documented: false
+  note: No idempotency-key contract is documented on the public portal.
+pagination:
+  documented: false
+error_envelope:
+  documented: false
+  note: Error reference is behind the developer portal's private OpenAPI documents.

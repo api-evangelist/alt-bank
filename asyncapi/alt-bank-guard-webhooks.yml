@@ -1,0 +1,29 @@
+generated: '2026-07-17'
+method: searched
+source: https://developers.altbank.ai/docs/guard-api
+spec_type: Webhooks
+summary: >-
+  The GUARD underwriting API is asynchronous and delivers its result to a
+  partner-hosted callback (webhook) endpoint. alt.bank does not publish an
+  AsyncAPI document; this captures the documented webhook/callback surface.
+transport: https
+delivery: >-
+  Partner registers a callback URL with alt.bank before using the API. When an
+  underwriting request finishes, alt.bank POSTs the result to that URL.
+events:
+- name: underwriting.completed
+  direction: alt.bank -> partner callback URL
+  trigger: >-
+    A credit-card underwriting request submitted to
+    POST /api/partner/credit/cards/underwritings has finished processing.
+  method: POST
+  target: partner-registered callback URL
+  payload_fields:
+  - finished_datetime
+  - score
+  - risk_band
+  - credit_limit
+  note: >-
+    Field list is derived from the documented underwriting response
+    (finished datetime, score, risk band, credit-limit decision). Exact JSON
+    property names are behind the portal's private OpenAPI document.

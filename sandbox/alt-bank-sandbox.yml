@@ -1,0 +1,21 @@
+generated: '2026-07-17'
+method: searched
+source: https://developers.altbank.ai/docs/guard-api
+summary: >-
+  alt.bank publishes a dedicated staging sandbox for the GUARD API whose
+  mechanics mirror the production environment, letting partners test
+  underwriting integrations before going live.
+environments:
+- name: production
+  host: https://guard.altbank.ai
+  underwriting_endpoint: https://guard.altbank.ai/api/partner/credit/cards/underwritings
+- name: sandbox
+  host: https://guard.stg.altbank.ai
+  underwriting_endpoint: https://guard.stg.altbank.ai/api/partner/credit/cards/underwritings
+  note: Staging environment; mechanics mirror production, used for comprehensive API testing.
+credentials:
+  model: per-partner X-Partner-Auth token issued by alt.bank
+  note: >-
+    alt.bank does not publish self-service test tokens or magic test values;
+    credentials and IP allow-list entries are provisioned per partner. No test
+    values are invented here.

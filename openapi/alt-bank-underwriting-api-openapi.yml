@@ -1,0 +1,65 @@
+openapi: 3.0.3
+info:
+  title: alt.bank GUARD Underwriting API
+  version: '1.0'
+  description: 'GUARD is alt.bank''s credit-underwriting and risk-scoring engine for partner-issued credit cards in Brazil. A partner submits an underwriting request for a customer (identified by CPF); GUARD scores the applicant against traditional and alternative data and returns a risk band and a suggested initial credit line. The call is asynchronous: GUARD acknowledges the request and later POSTs the result to a partner callback URL that is configured out-of-band with alt.bank before use.'
+  contact:
+    name: alt.bank Developer Support
+    url: https://developers.altbank.ai/docs/guard-api
+servers:
+- url: https://guard.altbank.ai
+  description: Production
+- url: https://guard.stg.altbank.ai
+  description: Sandbox / staging (test CPFs emulate approval and rejection scenarios)
+security:
+- PartnerAuth: []
+tags:
+- name: Underwriting
+  description: Credit underwriting and risk scoring for partner card issuance.
+paths:
+  /api/partner/credit/cards/underwritings:
+    post:
+      operationId: submitUnderwriting
+      tags:
+      - Underwriting
+      summary: Submit a credit-card underwriting request
+      description: Starts the underwriting process for a customer. The call is asynchronous — GUARD accepts the request and returns an acknowledgement, then delivers the scoring result to the partner's pre-configured callback endpoint once processing completes. Authenticate with the `X-Partner-Auth` header (a 64-character alphanumeric partner token).
+      security:
+      - PartnerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UnderwritingRequest'
+      responses:
+        '202':
+          description: Underwriting request accepted for asynchronous processing. The scoring result is delivered later to the partner callback URL as an UnderwritingResult payload.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnderwritingAck'
+        '401':
+          description: Missing or invalid `X-Partner-Auth` token.
+components:
+  schemas:
+    UnderwritingAck:
+      type: object
+      description: Acknowledgement that the asynchronous underwriting request was accepted.
+      additionalProperties: true
+    UnderwritingRequest:
+      type: object
+      description: Underwriting input for one customer. The customer is identified by CPF (Brazilian taxpayer registry number); in the sandbox, alt.bank provides test CPFs that emulate different approval/rejection scenarios. Additional request fields exist in the partner-gated documentation and are not reproduced here.
+      additionalProperties: true
+      properties:
+        cpf:
+          type: string
+          description: Brazilian taxpayer registry number (CPF) of the applicant.
+      required:
+      - cpf
+  securitySchemes:
+    PartnerAuth:
+      type: apiKey
+      in: header
+      name: X-Partner-Auth
+      description: Partner authentication token — a 64-character alphanumeric string issued by alt.bank, sent on every request in the `X-Partner-Auth` header.

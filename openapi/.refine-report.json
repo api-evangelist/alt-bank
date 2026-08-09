@@ -1,0 +1,14 @@
+{
+  "provider": "altbank",
+  "sources": [
+    "altbank-underwriting-api-openapi.yml"
+  ],
+  "outputs": [
+    "altbank-underwriting-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

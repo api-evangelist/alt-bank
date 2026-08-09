@@ -1,0 +1,8 @@
+generated: '2026-07-17'
+method: generated
+skills:
+  - file: altbank-submit-underwriting.md
+    name: Submit a GUARD credit-card underwriting
+    api: openapi/altbank-guard-openapi.yml
+    operations:
+      - submitUnderwriting

@@ -1,19 +1,15 @@
 aid: alt-bank
 name: Alt Bank
-description: >-
-  alt.bank (Alt Bank) is a Brazilian fintech providing a fully integrated,
-  turnkey credit-card and consumer-credit platform for partners who want to
-  launch prepaid and postpaid cards without becoming a financial institution.
-  Its flagship product, GUARD, is a machine-learning underwriting / credit-risk
-  engine ("Brazil's most accurate credit model") that returns a Guard Score,
-  risk band and credit-limit decision through a real-time partner API. The
-  platform also bundles white-label credit cards (novücard), Visa BIN
-  sponsorship, KYC, anti-fraud, dispute management and Pix/boleto payment
-  processing. Partners integrate over a documented HTTPS API secured with a
-  per-partner X-Partner-Auth token plus IP allow-listing, with a mirrored
-  staging sandbox and asynchronous callback delivery of underwriting results.
-  Backed by Anthemis, Union Square Ventures, Repeat Ventures and SquareOne
-  Capital, alt.bank targets financial inclusion for underbanked consumers.
+description: alt.bank (Alt Bank) is a Brazilian fintech providing a fully integrated, turnkey credit-card
+  and consumer-credit platform for partners who want to launch prepaid and postpaid cards without becoming
+  a financial institution. Its flagship product, GUARD, is a machine-learning underwriting / credit-risk
+  engine ("Brazil's most accurate credit model") that returns a Guard Score, risk band and credit-limit
+  decision through a real-time partner API. The platform also bundles white-label credit cards (novücard),
+  Visa BIN sponsorship, KYC, anti-fraud, dispute management and Pix/boleto payment processing. Partners
+  integrate over a documented HTTPS API secured with a per-partner X-Partner-Auth token plus IP allow-listing,
+  with a mirrored staging sandbox and asynchronous callback delivery of underwriting results. Backed by
+  Anthemis, Union Square Ventures, Repeat Ventures and SquareOne Capital, alt.bank targets financial inclusion
+  for underbanked consumers.
 url: https://raw.githubusercontent.com/api-evangelist/alt-bank/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -35,7 +31,7 @@ accessModel:
   method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-08-08'
 image: https://altbank.ai/wp-content/uploads/2020/08/cropped-alt.bank-logo-square-300x300.png
 tags:
 - Company
@@ -57,13 +53,10 @@ maintainers:
   email: info@apis.io
 apis:
 - name: GUARD API
-  description: >-
-    Real-time consumer credit underwriting / risk-assessment API. Partners POST
-    an underwriting request for a credit-card applicant and receive a Guard
-    Score, risk band and credit-limit decision. The call is asynchronous: the
-    result is delivered to a partner-registered callback URL once the analysis
-    is finished. Authenticated with a 64-character per-partner X-Partner-Auth
-    token and IP allow-listing.
+  description: 'Real-time consumer credit underwriting / risk-assessment API. Partners POST an underwriting
+    request for a credit-card applicant and receive a Guard Score, risk band and credit-limit decision.
+    The call is asynchronous: the result is delivered to a partner-registered callback URL once the analysis
+    is finished. Authenticated with a 64-character per-partner X-Partner-Auth token and IP allow-listing.'
   humanURL: https://developers.altbank.ai/docs/guard
   baseURL: https://guard.altbank.ai
   tags:
@@ -77,9 +70,8 @@ apis:
   - type: Sandbox
     url: https://guard.stg.altbank.ai
 - name: CC Integration API
-  description: >-
-    Credit-card module integration API (private, partner B2B) for issuing and
-    managing alt.bank white-label credit cards.
+  description: Credit-card module integration API (private, partner B2B) for issuing and managing alt.bank
+    white-label credit cards.
   humanURL: https://developers.altbank.ai/docs/cc-integration
   tags:
   - Credit Cards
@@ -88,9 +80,8 @@ apis:
   - type: APIReference
     url: https://developers.altbank.ai/docs/cc-integration
 - name: SDK KYC API
-  description: >-
-    Identity verification / KYC SDK and API for onboarding and verifying
-    applicants as part of the alt.bank credit and card flows.
+  description: Identity verification / KYC SDK and API for onboarding and verifying applicants as part
+    of the alt.bank credit and card flows.
   humanURL: https://developers.altbank.ai/docs/sdk-kyc
   tags:
   - KYC
@@ -130,8 +121,12 @@ common:
   url: llms/alt-bank-llms.txt
 - type: WellKnown
   url: well-known/alt-bank-well-known.yml
+- type: AgentSkill
+  url: skills/_index.yml
 x-enrichment:
   date: '2026-07-19'
   status: backfilled
   pass: local-v1
   note: backfilled from .gitignore signal + verified work evidence
+x-merged-from:
+- altbank

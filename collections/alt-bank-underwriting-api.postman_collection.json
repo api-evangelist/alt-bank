@@ -1,0 +1,223 @@
+{
+  "item": [
+    {
+      "id": "f0628c84-dc53-4623-ae53-dd3a4ab86fbe",
+      "name": "Underwriting",
+      "description": {
+        "content": "Credit underwriting and risk scoring for partner card issuance.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7efa9737-d01a-4415-8184-6638a24788f2",
+          "name": "Submit a credit-card underwriting request",
+          "request": {
+            "name": "Submit a credit-card underwriting request",
+            "description": {
+              "content": "Starts the underwriting process for a customer. The call is asynchronous — GUARD accepts the request and returns an acknowledgement, then delivers the scoring result to the partner's pre-configured callback endpoint once processing completes. Authenticate with the `X-Partner-Auth` header (a 64-character alphanumeric partner token).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "partner",
+                "credit",
+                "cards",
+                "underwritings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Partner-Auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cpf\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0f111d76-2eec-4d6e-a228-fb74bda6c4d0",
+              "name": "Underwriting request accepted for asynchronous processing. The scoring result is delivered later to the partner callback URL as an UnderwritingResult payload.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "partner",
+                    "credit",
+                    "cards",
+                    "underwritings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Partner-Auth",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cpf\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": 8645,\n  \"key_1\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8e0c674f-b070-43aa-8d9e-b5a6064a321c",
+              "name": "Missing or invalid `X-Partner-Auth` token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "partner",
+                    "credit",
+                    "cards",
+                    "underwritings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Partner-Auth",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cpf\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://guard.altbank.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Partner-Auth"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bf868801-6182-427c-853c-9cc660d963d2",
+    "name": "alt.bank GUARD Underwriting API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "GUARD is alt.bank's credit-underwriting and risk-scoring engine for partner-issued credit cards in Brazil. A partner submits an underwriting request for a customer (identified by CPF); GUARD scores the applicant against traditional and alternative data and returns a risk band and a suggested initial credit line. The call is asynchronous: GUARD acknowledges the request and later POSTs the result to a partner callback URL that is configured out-of-band with alt.bank before use.\n\nContact Support:\n Name: alt.bank Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "alt.bank GUARD Underwriting API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Partner-Auth",
+      "value": "{{X-Partner-Auth}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Underwriting",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit a credit-card underwriting request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://guard.altbank.ai/api/partner/credit/cards/underwritings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-Partner-Auth",
+              "value": "{{X-Partner-Auth}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Starts the underwriting process for a customer. The call is asynchronous — GUARD accepts the request and returns an acknowledgement, then delivers the scoring result to the partner's pre-configured callback endpoint once processing completes. Authenticate with the `X-Partner-Auth` header (a 64-character alphanumeric partner token)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -2,19 +2,23 @@ generated: '2026-07-17'
 method: derived
 status: candidate
 source: https://developers.altbank.ai/docs/guard-api
-note: >-
-  No official hosted/remote alt.bank MCP server was found. This is a candidate
-  tool surface derived from the documented GUARD partner API operation so an
-  agent-native wrapper can be authored later. Not published by alt.bank.
+note: No official hosted/remote alt.bank MCP server was found. This is a candidate tool surface derived
+  from the documented GUARD partner API operation so an agent-native wrapper can be authored later. Not
+  published by alt.bank.
 server:
   name: alt-bank
   transport: http
 tools:
 - name: submit_underwriting
-  description: >-
-    Submit a credit-card underwriting request to GUARD and receive a Guard
-    Score, risk band and credit-limit decision asynchronously via callback.
+  description: Submit a credit-card underwriting request to GUARD and receive a Guard Score, risk band
+    and credit-limit decision asynchronously via callback.
   method: POST
   endpoint: https://guard.altbank.ai/api/partner/credit/cards/underwritings
   auth: X-Partner-Auth header
   source_operation: developers.altbank.ai/docs/guard-api#underwritings
+deployment:
+  mode: none
+  verified: derived
+  tools: 1
+  checked: '2026-08-12'
+  source: catalog MCP census

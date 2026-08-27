@@ -53,10 +53,11 @@ maintainers:
   email: info@apis.io
 apis:
 - name: GUARD API
-  description: 'Real-time consumer credit underwriting / risk-assessment API. Partners POST an underwriting
-    request for a credit-card applicant and receive a Guard Score, risk band and credit-limit decision.
-    The call is asynchronous: the result is delivered to a partner-registered callback URL once the analysis
-    is finished. Authenticated with a 64-character per-partner X-Partner-Auth token and IP allow-listing.'
+  description: >-
+    Real-time consumer credit underwriting / risk-assessment API. Partners POST an underwriting request
+    for a credit-card applicant and receive a Guard Score, risk band and credit-limit decision. The call
+    is asynchronous: the result is delivered to a partner-registered callback URL once the analysis is
+    finished. Authenticated with a 64-character per-partner X-Partner-Auth token and IP allow-listing.
   humanURL: https://developers.altbank.ai/docs/guard
   baseURL: https://guard.altbank.ai
   tags:
@@ -70,8 +71,9 @@ apis:
   - type: Sandbox
     url: https://guard.stg.altbank.ai
 - name: CC Integration API
-  description: Credit-card module integration API (private, partner B2B) for issuing and managing alt.bank
-    white-label credit cards.
+  description: >-
+    Credit-card module integration API (private, partner B2B) for issuing and managing alt.bank white-label
+    credit cards.
   humanURL: https://developers.altbank.ai/docs/cc-integration
   tags:
   - Credit Cards
@@ -80,8 +82,9 @@ apis:
   - type: APIReference
     url: https://developers.altbank.ai/docs/cc-integration
 - name: SDK KYC API
-  description: Identity verification / KYC SDK and API for onboarding and verifying applicants as part
-    of the alt.bank credit and card flows.
+  description: >-
+    Identity verification / KYC SDK and API for onboarding and verifying applicants as part of the alt.bank
+    credit and card flows.
   humanURL: https://developers.altbank.ai/docs/sdk-kyc
   tags:
   - KYC
@@ -90,6 +93,16 @@ apis:
   properties:
   - type: APIReference
     url: https://developers.altbank.ai/docs/sdk-kyc
+- aid: alt-bank:alt-bank-underwriting-api
+  name: Alt Bank Underwriting API
+  description: Credit underwriting and risk scoring for partner card issuance.
+  humanURL: https://developers.altbank.ai/docs/guard
+  baseURL: https://guard.altbank.ai
+  tags:
+  - Underwriting
+  properties:
+  - type: OpenAPI
+    url: openapi/alt-bank-underwriting-api-openapi.yml
 common:
 - type: DomainSecurity
   url: security/alt-bank-domain-security.yml

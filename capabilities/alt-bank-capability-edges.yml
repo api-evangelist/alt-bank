@@ -1,0 +1,26 @@
+slug: alt-bank
+provider: Alt Bank
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Underwriting
+  spec_file: alt-bank-underwriting-api-openapi.yml
+  capability_id: BC-1320.20
+  capability_id_l1: BC-1320
+  capability_name: Credit Underwriting & Decisioning Management
+  confidence: 0.95
+  evidence: POST /api/partner/credit/cards/underwritings  submitUnderwriting  Submit a credit-card underwriting
+    request; "GUARD scores the applicant against traditional and alternative data and returns a risk band
+    and a suggested initial credit line"
+  reason: The single operation performs credit scoring and decisioning of a card applicant, returning
+    risk band and suggested credit line — textbook credit underwriting and decisioning.

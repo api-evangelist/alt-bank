@@ -56,6 +56,19 @@ tags:
 - Credit Cards
 - Payments
 - KYC
+- Risk Management
+- Brazil
+- Financial Inclusion
+- Banking as a Service
+tags_raw:
+- Company
+- Fintech
+- Banking
+- Credit
+- Underwriting
+- Credit Cards
+- Payments
+- KYC
 - Risk
 - Brazil
 - Financial Inclusion
@@ -75,6 +88,11 @@ apis:
   humanURL: https://developers.altbank.ai/docs/guard
   baseURL: https://guard.altbank.ai
   tags:
+  - Credit
+  - Underwriting
+  - Risk Management
+  - Credit Cards
+  tags_raw:
   - Credit
   - Underwriting
   - Risk

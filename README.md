@@ -64,6 +64,109 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Alt Bank is a company surfaced as a portfolio company of anthemis and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+alt.bank (Alt Bank) is a Brazilian fintech providing a fully integrated, turnkey credit-card and consumer-credit platform for partners who want to launch prepaid and postpaid cards without becoming a financial institution. Its flagship product, GUARD, is a machine-learning underwriting / credit-risk engine ("Brazil's most accurate credit model") that returns a Guard Score, risk band and credit-limit decision through a real-time partner API. The platform also bundles white-label credit cards (novücard), Visa BIN sponsorship, KYC, anti-fraud, dispute management and Pix/boleto payment processing. Partners integrate over a documented HTTPS API secured with a per-partner X-Partner-Auth token plus IP allow-listing, with a mirrored staging sandbox and asynchronous callback delivery of underwriting results. Backed by Anthemis, Union Square Ventures, Repeat Ventures and SquareOne Capital, alt.bank targets financial inclusion for underbanked consumers.
 
-Backed by: anthemis
+**Areas:** Company · Fintech · Banking · Credit · Underwriting · Credit Cards · Payments · KYC · Risk Management · Brazil · Financial Inclusion · Banking as a Service
+
+## Alt Bank on APIs.io
+
+Everything profiled for Alt Bank is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/alt-bank/](https://apis.io/providers/alt-bank/)** — or go straight to one of the APIs or properties below.
+
+### APIs (4)
+
+- [GUARD API](https://apis.io/apis/alt-bank/guard-api/) — Real-time consumer credit underwriting / risk-assessment API. Partners POST an underwriting request for a credit-card applicant and receive a Guard Score,…
+- [CC Integration API](https://apis.io/apis/alt-bank/cc-integration-api/) — Credit-card module integration API (private, partner B2B) for issuing and managing alt.bank white-label credit cards.
+- [SDK KYC API](https://apis.io/apis/alt-bank/sdk-kyc-api/) — Identity verification / KYC SDK and API for onboarding and verifying applicants as part of the alt.bank credit and card flows.
+- [Alt Bank Underwriting API](https://apis.io/apis/alt-bank/alt-bank-underwriting-api/) — Credit underwriting and risk scoring for partner card issuance.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Alt Bank Guard Webhooks](https://apis.io/asyncapis/alt-bank/alt-bank-guard-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [alt-bank](https://apis.io/servers/alt-bank/alt-bank/)
+
+#### Collections (1)
+
+Postman and Open Collection request collections.
+
+- [alt.bank GUARD Underwriting API](https://apis.io/collections/alt-bank/open-alt-bank-underwriting-api/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Alt Bank Authentication](https://apis.io/security/alt-bank/alt-bank-authentication/)
+- [Alt Bank Domain Security](https://apis.io/security/alt-bank/alt-bank-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://altbank.ai/en/)
+- [Documentation](https://developers.altbank.ai/docs/guard-api)
+- [Getting started](https://developers.altbank.ai/docs/getting-started)
+- [API reference](https://developers.altbank.ai/docs/guard)
+- [Support](https://altbank.ai/en/contact-us/)
+
+## API Evangelist rating
+
+**Kin Score 23.5** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 57.6 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 18.5 |
+| Access clarity | 0.0 |
+
+**Agent readiness 20.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.7** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/alt-bank/](https://apis.io/providers/alt-bank/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Alt Bank: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/alt-bank/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
